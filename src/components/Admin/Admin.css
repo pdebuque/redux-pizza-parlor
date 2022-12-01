@@ -1,0 +1,13 @@
+th,thead,td {
+border: solid black 1px;
+padding: 4px;
+}
+
+
+.content{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+

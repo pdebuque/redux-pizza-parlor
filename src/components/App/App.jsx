@@ -1,6 +1,8 @@
 
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+
 import axios from "axios";
 import "./App.css";
 import Header from "../Header/Header";
@@ -8,6 +10,7 @@ import Menu from "../Menu/Menu";
 import Checkout from "../Checkout/Checkout";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Admin from "../Admin/Admin.jsx";
 import Customer from '../Customer/Customer';
 import Checkout from '../Checkout/Checkout';
 import Menu from '../Menu/Menu'
@@ -56,7 +59,6 @@ function App() {
       </Router>
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
-
 
       {/* 
       
