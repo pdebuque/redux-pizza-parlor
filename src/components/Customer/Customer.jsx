@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 export default function Customer() {
@@ -13,7 +13,7 @@ export default function Customer() {
         type: null,
     })
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const history = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('in handleSubmit');
@@ -30,7 +30,7 @@ export default function Customer() {
             zip: "",
             type: null
         });
-        navigate('/checkout')
+        history.push('/checkout')
         // navigate to next page
     }
 

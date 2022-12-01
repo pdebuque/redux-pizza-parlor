@@ -17,7 +17,7 @@ const currentOrder = (state = {
     pizzas: []
 }, action) => {
     // pizza order will be an array
-    if (action.type === "SET_PIZZAS") {
+    if (action.type === "SET_ORDER") {
         return { ...state, pizzas: action.payload }
     }
     // form saves customer = {namel, address, city, zip}
@@ -30,8 +30,13 @@ const currentOrder = (state = {
     return state
 }
 
+const pizzaList = (state=[], action) => {
+    if (action.type === "SET_PIZZA_LIST") return action.payload
+    return state
+}
+
 const store = createStore(combineReducers({
-    currentOrder
+    currentOrder, pizzaList
 }),
     applyMiddleware(logger))
 
