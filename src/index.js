@@ -11,32 +11,46 @@ const currentOrder = (state = {
     street_address: "",
     city: "",
     zip: "",
+    type: null,
     total: 0,
     type: "",
     pizzas: []
 }, action) => {
-    if (action.type === "ADD_PIZZAS") {
+    // pizza order will be an array
+    if (action.type === "SET_ORDER") {
         return { ...state, pizzas: action.payload }
     }
+    // form saves customer = {namel, address, city, zip}
     if (action.type === "SET_CUSTOMER") {
         const customer = action.payload
         return {
-            ...state,
-            customer_name: customer.name,
-            street_address: customer.address,
-            city: customer.city,
-            zip: customer.zip,
+            ...state, ...action.payload
         }
+    }
+    if (action.type === 'CLEAR_CART') return {
+        customer_name: "",
+        street_address: "",
+        city: "",
+        zip: "",
+        type: null,
+        total: 0,
+        type: "",
+        pizzas: []
     }
     return state
 }
 
+const pizzaList = (state = [], action) => {
+    if (action.type === "SET_PIZZA_LIST") return action.payload
+    return state
+}
+
 const store = createStore(combineReducers({
-    currentOrder
+    currentOrder, pizzaList
 }),
     applyMiddleware(logger))
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <App />
     </Provider>, document.getElementById('root'));

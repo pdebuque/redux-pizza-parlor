@@ -1,17 +1,33 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios";
 import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Customer from '../Customer/Customer';
+import Checkout from '../Checkout/Checkout';
+import Menu from '../Menu/Menu'
 
 
 function App() {
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<h1 className='App-title'>Prime Pizza</h1>
-			</header>
+
+  const dispatch = useDispatch()
+  const getPizzaList = () => {
+    axios.get('/api/pizza')
+      .then(({ data }) => {
+        dispatch({
+          type: 'SET_PIZZA_LIST',
+          payload: data
+        })
+      })
+      .catch(err => console.log('could not get pizza list', err))
+    // dispatch to index: add pizzas
+  }
+  //use selector to get the pizza list
+  useEffect(() => {
+    getPizzaList()
+  }, []);
 
 
   return (
@@ -28,19 +44,17 @@ function App() {
         <Route exact path="/customer">
           <Customer />
         </Route>
-        <Route exact path="/checkout">
+        {/* <Route exact path="/checkout">
           <Checkout />
         </Route>
         <Route exact path="/admin">
           <Admin />
-        </Route>
+        </Route> */}
 
       </Router>
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
 
 
-			{/* 
+      {/* 
       
 <Header />
       <Router>
@@ -64,8 +78,8 @@ function App() {
 </Router>
       
       */}
-		</div>
-	);
+    </div>
+  );
 }
 
 export default App;
