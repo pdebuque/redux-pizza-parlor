@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios";
 import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
@@ -27,9 +27,8 @@ function App() {
   //use selector to get the pizza list
   useEffect(() => {
     getPizzaList()
-  }, [])
+  }, []);
 
-  const pizzaList = useSelector(store => store.pizzaList)
 
   return (
     <div className='App'>
@@ -40,7 +39,7 @@ function App() {
       <Router>
 
         <Route exact path="/">
-          <Menu pizzaList={pizzaList} />
+          <Menu />
         </Route>
         <Route exact path="/customer">
           <Customer />
