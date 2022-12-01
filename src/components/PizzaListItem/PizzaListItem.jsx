@@ -1,3 +1,4 @@
+import '../PizzaListItem/PizzaListItem.css';
 
 import { useState } from 'react'
 
@@ -16,7 +17,7 @@ export default function PizzaListItem({ pizza, newOrder, setOrder }) {
 
     // pizza will be of form {id: x, quantity: y}
     return (
-        <div key={pizza.id}>
+        <div key={pizza.id} className='menu-item'>
             <img src={pizza.image_path} style={{ width: 200 }} alt={`${pizza.name} picture`} />
             {pizza.name}. {pizza.description} ${pizza.price}
             <input
