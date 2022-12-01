@@ -5,7 +5,7 @@ CREATE TABLE "pizza" (
 	"price" NUMERIC (20, 2) NOT NULL,
 	"image_path" VARCHAR(1000) NOT NULL
 );
-
+-- pizza table is never changed; only used for get
 INSERT INTO "pizza" ("name", "description", "price", "image_path")
 VALUES ('Tomato Soup','If you like pizza, but you hate the toppings, the cheese, and the crust, you''ll love this!',12.99,'images/pizza_photo.png'),
 ('Onomatopizza','We start with a WHOMP of dough, SPLAT some marinara on it, PLOP enough cheese on there to make a mouse PEEP. Top it off with some SIZZLING bacon, and BOOM there it is! We guarantee you''ll SMACK your lips.',14.99,'images/pizza_photo.png'),
@@ -15,6 +15,7 @@ VALUES ('Tomato Soup','If you like pizza, but you hate the toppings, the cheese,
 ('Bad Date','Garlic, Onion and Pepperoni.',24.99,'images/pizza_photo.png'),
 ('Another Little Pizza My Heart', 'Cheese Pizza. Personal size only.', 5.99,'images/pizza_photo.png');
 
+-- orders are posted to this table
 CREATE TABLE "orders" (
 	"id" SERIAL PRIMARY KEY,
 	"customer_name" VARCHAR (1000) NOT NULL,
@@ -26,6 +27,7 @@ CREATE TABLE "orders" (
 	"time" TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
+-- ?????
 CREATE TABLE "line_item" (
 	"id" SERIAL PRIMARY KEY,
 	"order_id" INT REFERENCES "orders" ON DELETE CASCADE,
