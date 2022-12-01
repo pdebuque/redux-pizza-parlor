@@ -27,10 +27,20 @@ const currentOrder = (state = {
             ...state, ...action.payload
         }
     }
+    if (action.type === 'CLEAR_CART') return {
+        customer_name: "",
+        street_address: "",
+        city: "",
+        zip: "",
+        type: null,
+        total: 0,
+        type: "",
+        pizzas: []
+    }
     return state
 }
 
-const pizzaList = (state=[], action) => {
+const pizzaList = (state = [], action) => {
     if (action.type === "SET_PIZZA_LIST") return action.payload
     return state
 }
@@ -41,6 +51,6 @@ const store = createStore(combineReducers({
     applyMiddleware(logger))
 
 ReactDOM.render(
-    <Provider store = {store}>
+    <Provider store={store}>
         <App />
     </Provider>, document.getElementById('root'));
