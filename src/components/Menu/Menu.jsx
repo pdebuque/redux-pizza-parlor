@@ -8,7 +8,7 @@ export default function Menu() {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const [newOrder, setOrder] = useState([]);
+    const [newOrder, setOrder] = useState([]); //each pizza is {id: x, quantity: y}
     const pizzaList = useSelector(store => store.pizzaList);
 
     const submitOrder = () => {

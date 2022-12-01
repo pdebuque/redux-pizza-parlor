@@ -11,11 +11,16 @@ function Checkout(){
     const currentOrder = useSelector(store => store.currentOrder);
     const history = useHistory();
 
+    const pizzaList = useSelector(store=>store.pizzaList);
+
+    const findName = (id) =>{
+        return pizzaList.filter(pizza=>pizza.id===id)[0].name
+    }
 
     function submitOrder(){
 
         console.log ('in submitOrder!');
-        axios.post('/api/order', {currentOrder} )
+        axios.post('/api/order', currentOrder )
         .then( response=> {
             console.log(response);
             alert('ORDER SUBMITTED!');      //TODO TO BE DEVELOPED INTO A MODAL
@@ -32,7 +37,7 @@ function Checkout(){
         <div className="checkOut">
             <h3 id="checkoutDetails">Checkout Details</h3>
             <p>Order Total: ${currentOrder.total}</p>
-            <p>Order: {currentOrder.pizzas} will need to be mapped</p>
+            <p>Order: {currentOrder.pizzas.map(pizza=>findName(pizza.id)).join(', ')}</p>
             <p>Customer Name: {currentOrder.customer_name}</p>
             <h3>Delivery Address:</h3>
             <p>Street: {currentOrder.street_address}</p>
