@@ -15,9 +15,11 @@ const currentOrder = (state = {
     type: "",
     pizzas: []
 }, action) => {
-    if (action.type === "ADD_PIZZAS") {
+    // pizza order will be an array
+    if (action.type === "SET_PIZZAS") {
         return { ...state, pizzas: action.payload }
     }
+    // form saves customer = {namel, address, city, zip}
     if (action.type === "SET_CUSTOMER") {
         const customer = action.payload
         return {
