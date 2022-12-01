@@ -8,14 +8,13 @@ import { Provider } from "react-redux";
 
 
 const currentOrder = (state = {
-    customer_name: "",
-    street_address: "",
-    city: "",
-    zip: "",
-    type: null,
+    customer_name: "Jon Doe",
+    street_address: "1234 Anywhere Street",
+    city: "Townsville",
+    zip: "10101",
     total: 0,
     type: "",
-    pizzas: []
+    pizzas: ['pep']
 }, action) => {
     // pizza order will be an array
     if (action.type === "SET_ORDER") {
