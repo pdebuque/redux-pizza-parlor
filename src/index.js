@@ -7,13 +7,13 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux'
 
 const currentOrder = (state = {
-    customer_name: "",
-    street_address: "",
-    city: "",
-    zip: "",
+    customer_name: "Jon Doe",
+    street_address: "1234 Anywhere Street",
+    city: "Townsville",
+    zip: "10101",
     total: 0,
     type: "",
-    pizzas: []
+    pizzas: ['pep']
 }, action) => {
     if (action.type === "ADD_PIZZAS") {
         return { ...state, pizzas: action.payload }
@@ -37,6 +37,6 @@ const store = createStore(combineReducers({
     applyMiddleware(logger))
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <App />
     </Provider>, document.getElementById('root'));

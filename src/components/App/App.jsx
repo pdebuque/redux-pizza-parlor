@@ -2,23 +2,19 @@
 import React from "react";
 import axios from "axios";
 import "./App.css";
+import Header from "../Header/Header";
+import Menu from "../Menu/Menu";
+import Checkout from "../Checkout/Checkout";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 function App() {
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<h1 className='App-title'>Prime Pizza</h1>
-			</header>
-
 
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-        <p>cart price</p>
+        <Header />
       </header>
       <Router>
 
@@ -26,18 +22,18 @@ function App() {
           <Menu />
         </Route>
         <Route exact path="/customer">
-          <Customer />
+          {/* <Customer /> */}
         </Route>
         <Route exact path="/checkout">
           <Checkout />
         </Route>
         <Route exact path="/admin">
-          <Admin />
+          {/* <Admin /> */}
         </Route>
 
       </Router>
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
+      {/* <img src='images/pizza_photo.png' />
+      <p>Pizza is great.</p> */}
 
 
 			{/* 
