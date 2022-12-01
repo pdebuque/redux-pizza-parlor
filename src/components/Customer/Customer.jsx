@@ -6,14 +6,14 @@ import { useHistory } from 'react-router-dom';
 export default function Customer() {
 
     const [newCustomer, setCustomer] = useState({
-        name: "",
-        address: "",
+        customer_name: "",
+        street_address: "",
         city: "",
         zip: "",
-        type: null,
+        type: 'Pickup',
     })
 
-    const currentOrder = useSelector(store=>store.currentOrder)
+    const currentOrder = useSelector(store => store.currentOrder)
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -27,11 +27,11 @@ export default function Customer() {
         })
         // reset inputs
         setCustomer({
-            name: "",
-            address: "",
+            customer_name: "",
+            street_address: "",
             city: "",
             zip: "",
-            type: null
+            type: 'Pickup'
         });
         history.push('/checkout')
         // navigate to next page
@@ -41,37 +41,41 @@ export default function Customer() {
     return (
         <main>
             {JSON.stringify(currentOrder)}
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                required
-                value={newCustomer.name}
-                onChange={(e) => setCustomer({ ...newCustomer, name: e.target.value })}
-                placeholder="Name"
-            />
-            <input
-                type="text"
-                required
-                value={newCustomer.address}
-                onChange={(e) => setCustomer({ ...newCustomer, address: e.target.value })}
-                placeholder="Street Address"
-            />
-            <input
-                type="text"
-                required
-                value={newCustomer.city}
-                onChange={(e) => setCustomer({ ...newCustomer, city: e.target.value })}
-                placeholder="City"
-            />
-            <input
-                type="number"
-                required
-                value={newCustomer.zip}
-                onChange={(e) => setCustomer({ ...newCustomer, zip: e.target.value })}
-                placeholder="Zip"
-            />
-            <button type="submit">NEXT</button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    required
+                    value={newCustomer.customer_name}
+                    onChange={(e) => setCustomer({ ...newCustomer, customer_name: e.target.value })}
+                    placeholder="Name"
+                />
+                <input
+                    type="text"
+                    required
+                    value={newCustomer.street_address}
+                    onChange={(e) => setCustomer({ ...newCustomer, street_address: e.target.value })}
+                    placeholder="Street Address"
+                />
+                <input
+                    type="text"
+                    required
+                    value={newCustomer.city}
+                    onChange={(e) => setCustomer({ ...newCustomer, city: e.target.value })}
+                    placeholder="City"
+                />
+                <input
+                    type="number"
+                    required
+                    value={newCustomer.zip}
+                    onChange={(e) => setCustomer({ ...newCustomer, zip: e.target.value })}
+                    placeholder="Zip"
+                />
+                <select name="type" id="type" onChange={(e) => setCustomer({ ...newCustomer, type: e.target.value })}>
+                    <option value="Pickup" selected>Pickup</option>
+                    <option value="Delivery">Delivery</option>
+                </select>
+                <button type="submit">NEXT</button>
+            </form>
         </main>
     )
 }

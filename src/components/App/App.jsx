@@ -12,8 +12,6 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Admin from "../Admin/Admin.jsx";
 import Customer from '../Customer/Customer';
-import Checkout from '../Checkout/Checkout';
-import Menu from '../Menu/Menu'
 
 
 function App() {
@@ -47,18 +45,16 @@ function App() {
           <Menu />
         </Route>
         <Route exact path="/customer">
-          {/* <Customer /> */}
+          <Customer />
         </Route>
-        {/* <Route exact path="/checkout">
+        <Route exact path="/checkout">
           <Checkout />
         </Route>
         <Route exact path="/admin">
           <Admin />
-        </Route> */}
+        </Route>
 
       </Router>
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
 
       {/* 
       
