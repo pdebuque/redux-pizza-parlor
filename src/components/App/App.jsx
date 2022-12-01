@@ -1,9 +1,18 @@
-import React from 'react';
-import axios from 'axios';
-import './App.css';
-import { Route, Router } from 'react-router-dom';
+
+import React from "react";
+import axios from "axios";
+import "./App.css";
+import { HashRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 function App() {
+	return (
+		<div className='App'>
+			<header className='App-header'>
+				<h1 className='App-title'>Prime Pizza</h1>
+			</header>
+
 
   return (
     <div className='App'>
@@ -30,7 +39,8 @@ function App() {
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
 
-      {/* 
+
+			{/* 
       
 <Header />
       <Router>
@@ -54,9 +64,8 @@ function App() {
 </Router>
       
       */}
-  
-    </div>
-  );
+		</div>
+	);
 }
 
 export default App;
