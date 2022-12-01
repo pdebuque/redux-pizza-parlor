@@ -7,13 +7,15 @@ import PizzaListItem from '../PizzaListItem/PizzaListItem';
 export default function Menu() {
 
     const dispatch = useDispatch();
-    const [newOrder, setOrder] = useState([])
+    const history = useHistory();
+    const [newOrder, setOrder] = useState([]);
     const pizzaList = useSelector(store => store.pizzaList);
 
     const submitOrder = () => {
         // take the order and send it to redux
-        console.log('in submitOrder')
-        dispatch({type: 'SET_ORDER',payload: newOrder})
+        console.log('in submitOrder');
+        dispatch({type: 'SET_ORDER',payload: newOrder});
+        history.push('/customer');
     }
 
     return (

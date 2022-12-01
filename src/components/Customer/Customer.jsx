@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
@@ -12,6 +12,9 @@ export default function Customer() {
         zip: "",
         type: null,
     })
+
+    const currentOrder = useSelector(store=>store.currentOrder)
+
     const dispatch = useDispatch();
     const history = useHistory();
     const handleSubmit = (e) => {
@@ -36,6 +39,8 @@ export default function Customer() {
 
 
     return (
+        <main>
+            {JSON.stringify(currentOrder)}
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
@@ -67,5 +72,6 @@ export default function Customer() {
             />
             <button type="submit">NEXT</button>
         </form>
+        </main>
     )
 }
