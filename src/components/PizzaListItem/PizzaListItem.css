@@ -1,0 +1,16 @@
+.menu-item {
+	width: 400px;
+	height: 400px;
+	border: 2px solid black;
+	text-align: center;
+	margin: 6px;
+}
+
+img {
+	width: 200px;
+	height: 200px;
+}
+
+button {
+	cursor: pointer;
+}

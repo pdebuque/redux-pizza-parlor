@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PizzaListItem from '../PizzaListItem/PizzaListItem';
-
+import '../Menu/Menu.css';
 
 export default function Menu() {
 
@@ -19,13 +19,15 @@ export default function Menu() {
     }
 
     return (
-        <main>
-            {JSON.stringify(newOrder)}
+// {JSON.stringify(newOrder)}
+<div>  
+        <main className='menu-container'>
+            
             {pizzaList.map(pizza => {
                 return (<PizzaListItem pizza={pizza} setOrder={setOrder} newOrder={newOrder} />)
             })}
-            <button onClick={submitOrder}>submit</button>
+            <button onClick={submitOrder} className='submit-btn'>submit</button>
         </main>
-
+</div>
     )
 }

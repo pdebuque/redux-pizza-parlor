@@ -1,4 +1,4 @@
-
+import '../PizzaListItem/PizzaListItem.css';
 
 
 export default function PizzaListItem({pizza, newOrder, setOrder}) {
@@ -10,7 +10,7 @@ const handleClick = () =>{
 
 
     return (
-        <div key={pizza.id}>
+        <div key={pizza.id} className='menu-item'>
             <img src={pizza.image_path} alt={`${pizza.name} picture`} />
             {pizza.name}. {pizza.description} {pizza.price}
             <button onClick = {handleClick}>add pizza</button>
