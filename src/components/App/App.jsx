@@ -12,6 +12,31 @@ function App() {
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+
+      {/* 
+      
+<Header />
+      <Router>
+    <Menu />
+      - executes get at /pizza and displays on dom
+      - records pizza choice(s) to state
+      - next button navs to <customer />
+
+    <Customer />
+      - saves user data into state
+      - next button navs to checkout
+
+    <Checkout />
+      - shows order data from state(redux)
+      - checkout button executes post with order data
+      - orders are saved into an array of orders
+
+    <Admin />
+      - display all orders
+
+</Router>
+      
+      */}
   
     </div>
   );
