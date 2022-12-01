@@ -8,18 +8,10 @@ import { Provider } from "react-redux";
 
 
 const currentOrder = (state = {
-<<<<<<< HEAD
     customer_name: "Jon Doe",
     street_address: "1234 Anywhere Street",
     city: "Townsville",
     zip: "10101",
-=======
-    customer_name: "",
-    street_address: "",
-    city: "",
-    zip: "",
-    type: null,
->>>>>>> c93692ceeff32f0bad3665fb0644c1c3a296855f
     total: 0,
     type: "",
     pizzas: ['pep']

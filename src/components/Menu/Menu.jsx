@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-
-function Menu() {
-    return (
-        <p>MENU</p>
-        // <img src='images/pizza_photo.png' />
-        // <p>Pizza is great.</p>
-    )
-}
-
-
-export default Menu;
-=======
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -44,4 +29,3 @@ export default function Menu() {
 
     )
 }
->>>>>>> c93692ceeff32f0bad3665fb0644c1c3a296855f
