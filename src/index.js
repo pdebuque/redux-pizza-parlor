@@ -11,6 +11,7 @@ const currentOrder = (state = {
     street_address: "",
     city: "",
     zip: "",
+    type: null,
     total: 0,
     type: "",
     pizzas: []
@@ -23,11 +24,7 @@ const currentOrder = (state = {
     if (action.type === "SET_CUSTOMER") {
         const customer = action.payload
         return {
-            ...state,
-            customer_name: customer.name,
-            street_address: customer.address,
-            city: customer.city,
-            zip: customer.zip,
+            ...state, ...action.payload
         }
     }
     return state
@@ -39,6 +36,6 @@ const store = createStore(combineReducers({
     applyMiddleware(logger))
 
 ReactDOM.render(
-    <Provider>
+    <Provider store = {store}>
         <App />
     </Provider>, document.getElementById('root'));

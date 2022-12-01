@@ -4,16 +4,12 @@ import axios from "axios";
 import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Customer from '../Customer/Customer';
+import Checkout from '../Checkout/Checkout'
 
 
 function App() {
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<h1 className='App-title'>Prime Pizza</h1>
-			</header>
-
-
+	
   return (
     <div className='App'>
       <header className='App-header'>
