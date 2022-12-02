@@ -13,6 +13,10 @@ export default function PizzaListItem({ pizza, newOrder, setOrder }) {
         setPizzas({ id: pizza.id, quantity: e.target.value })
     }
 
+	const handleRemove = (e) => {
+	pizza.filter()
+}
+
     const [pizzas, setPizzas] = useState({ id: '', quantity: '' })
 
     // pizza will be of form {id: x, quantity: y}
@@ -27,7 +31,11 @@ export default function PizzaListItem({ pizza, newOrder, setOrder }) {
                 value={pizzas.quantity}
                 onChange={handleChange}
             />
-            <button onClick={handleClick}>add pizza</button>
+						<div className='button-section'>
+							<button onClick={handleClick}>add pizza</button>
+							<button onClick={handleRemove}> Remove Pizza</button>
+						</div>
+            
         </div>
     )
 }
