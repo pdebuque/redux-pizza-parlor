@@ -3,11 +3,12 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./Checkout.css";
-
+import {useDispatch} from 'react-redux';
 
 
 function Checkout(){
 
+const dispatch = useDispatch();
     const currentOrder = useSelector(store => store.currentOrder);
     const history = useHistory();
 
@@ -24,6 +25,9 @@ function Checkout(){
         .then( response=> {
             console.log(response);
             alert('ORDER SUBMITTED!');      //TODO TO BE DEVELOPED INTO A MODAL
+						dispatch ({
+type: 'CLEAR_CART'
+});
             history.push('/');              //BRINGS US BACK TO LANDING PAGE
         }).catch(error => {
             console.log(error);

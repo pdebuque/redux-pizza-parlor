@@ -38,7 +38,7 @@ const currentOrder = (state = {
         pizzas: []
     }
 if (action.type === 'ADD_TO_TOTAL'){
-return {...currentOrder, total: Number(total+action.payload)}
+return {...state, total: action.payload}
 }
     return state
 }

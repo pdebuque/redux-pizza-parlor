@@ -58,7 +58,7 @@ export default function PizzaListItem({ pizza, newOrder, setOrder }) {
                     value={pizzas.quantity}
                     onChange={handleChange}
                 />
-                <Button size="small" onclick={addPizza}>Add</Button>
+                <Button size="small" onClick={addPizza}>Add</Button>
                 <Button size="small" onClick={removePizza}>Remove All</Button>
             </CardActions>
         </Card>
