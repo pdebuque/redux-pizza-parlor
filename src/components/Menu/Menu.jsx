@@ -43,8 +43,8 @@ history.push('/customer');
             {pizzaList.map(pizza => {
                 return (<PizzaListItem pizza={pizza} setOrder={setOrder} newOrder={newOrder} />)
             })}
-            <button onClick={submitOrder} className='submit-btn'>submit</button>
         </main>
+        <button onClick={submitOrder} className='submit-btn'>submit</button>
 </div>
     )
 }
