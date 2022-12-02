@@ -85,7 +85,7 @@ export default function Customer() {
                     onChange={(e) => setCustomer({ ...newCustomer, zip: e.target.value })}
                     placeholder="Zip"
                 />
-                <FormControl class='form-select'>
+                <FormControl className='form-select'>
                     <InputLabel id="pickup-deliver-label">Pickup or Delivery</InputLabel>
                     <Select
                         labelId="pickup-deliver-label"
