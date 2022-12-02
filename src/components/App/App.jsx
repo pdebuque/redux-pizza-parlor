@@ -9,7 +9,7 @@ import Header from "../Header/Header";
 import Menu from "../Menu/Menu";
 import Checkout from "../Checkout/Checkout";
 import { HashRouter as Router, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Admin from "../Admin/Admin.jsx";
 import Customer from '../Customer/Customer';
 

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './Customer.css';
+import { TextField, Select, MenuItem, InputLabel, Button, FormControl } from '@mui/material'
 
 
 export default function Customer() {
@@ -10,7 +12,7 @@ export default function Customer() {
         street_address: "",
         city: "",
         zip: "",
-        type: 'Pickup',
+        type: '',
     })
 
     const currentOrder = useSelector(store => store.currentOrder)
@@ -41,40 +43,63 @@ export default function Customer() {
     return (
         <main>
             {JSON.stringify(currentOrder)}
-            <form onSubmit={handleSubmit}>
-                <input
+            <form id="customer-form" onSubmit={handleSubmit}>
+                <h2>Enter your info</h2>
+                <TextField
+                    class="form-input"
                     type="text"
+                    variant='standard'
+                    size='small'
                     required
                     value={newCustomer.customer_name}
                     onChange={(e) => setCustomer({ ...newCustomer, customer_name: e.target.value })}
                     placeholder="Name"
                 />
-                <input
+                <TextField
+                    class='form-input'
+                    variant='standard'
+                    size='small'
                     type="text"
                     required
                     value={newCustomer.street_address}
                     onChange={(e) => setCustomer({ ...newCustomer, street_address: e.target.value })}
                     placeholder="Street Address"
                 />
-                <input
+                <TextField
+                    class='form-input'
+                    variant='standard'
+                    size='small'
                     type="text"
                     required
                     value={newCustomer.city}
                     onChange={(e) => setCustomer({ ...newCustomer, city: e.target.value })}
                     placeholder="City"
                 />
-                <input
+                <TextField
+                    class='form-input'
+                    variant='standard'
+                    size='small'
                     type="number"
                     required
                     value={newCustomer.zip}
                     onChange={(e) => setCustomer({ ...newCustomer, zip: e.target.value })}
                     placeholder="Zip"
                 />
-                <select name="type" id="type" onChange={(e) => setCustomer({ ...newCustomer, type: e.target.value })}>
-                    <option value="Pickup" selected>Pickup</option>
-                    <option value="Delivery">Delivery</option>
-                </select>
-                <button type="submit">NEXT</button>
+                <FormControl className='form-select'>
+                    <InputLabel id="pickup-deliver-label">Pickup or Delivery</InputLabel>
+                    <Select
+                        labelId="pickup-deliver-label"
+                        // class='form-input'
+                        // name="type"
+                        label='Pickup or Delivery'
+                        id="type"
+                        value={newCustomer.type}
+                        onChange={(e) => setCustomer({ ...newCustomer, type: e.target.value })}
+                    >
+                        <MenuItem value="Pickup">Pickup</MenuItem>
+                        <MenuItem value="Delivery">Delivery</MenuItem>
+                    </Select></FormControl>
+                <Button type="submit">NEXT</Button>
             </form>
         </main>
     )

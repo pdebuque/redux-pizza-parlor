@@ -19,15 +19,16 @@ export default function Menu() {
     }
 
     return (
-// {JSON.stringify(newOrder)}
+
 <div>  
+    {JSON.stringify(newOrder)}
         <main className='menu-container'>
             
             {pizzaList.map(pizza => {
                 return (<PizzaListItem pizza={pizza} setOrder={setOrder} newOrder={newOrder} />)
             })}
-            <button onClick={submitOrder} className='submit-btn'>submit</button>
         </main>
+        <button onClick={submitOrder} className='submit-btn'>submit</button>
 </div>
     )
 }
